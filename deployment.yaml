@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-flask-app
+  template:
+    metadata:
+      labels:
+        app: ml-flask-app
+    spec:
+      containers:
+      - name: ml-flask-app
+        image: ml-flask-app
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
